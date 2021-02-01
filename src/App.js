@@ -1,25 +1,46 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Movie from './components/Movie';
+import SearchBar from './components/SearchBar';
+import { API_KEY, API_URL, SEARCH_URL } from './config';
 
-function App() {
+const App = () => {
+  const [movies, setMovies] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
+
+  useEffect(() => {
+    getMovies(`${API_URL}&api_key=${API_KEY}`);
+  }, []);
+
+  const getMovies = API => {
+    fetch(API)
+      .then(res => res.json())
+      .then(data => setMovies(data.results));
+  };
+
+  const handleChange = e => {
+    setSearchInput(e.target.value);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    getMovies(`${SEARCH_URL}?api_key=${API_KEY}&query=${searchInput}`);
+    setSearchInput('');
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <SearchBar
+        searchchange={handleChange}
+        searchsubmit={handleSubmit}
+        searchinput={searchInput}
+      />
+      <div className="movie-container">
+        {movies.length > 0 &&
+          movies.map(movie => <Movie key={movie.id} {...movie} />)}
+      </div>
+    </>
   );
-}
+};
 
 export default App;
