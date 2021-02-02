@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Back from './Back';
 import { IMG_URL, ALT_IMG, MOVIE_URL, API_KEY } from '../config';
 
 const Movie = () => {
@@ -15,6 +16,7 @@ const Movie = () => {
 
   return (
     <>
+      <Back />
       <div className="movie-details">
         <img
           src={
