@@ -13,6 +13,7 @@ header {
   display: flex;
   justify-content: flex-end;
   padding: 1rem;
+  width: 100%;
 }
 
 .search {
@@ -102,4 +103,35 @@ header {
 
 .tag.red {
   color: red;
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: row;
+  margin: 5rem;
+  color: #fff;
+}
+
+.movie-details img {
+  width: 300px;
+}
+
+.movie-text {
+  display: flex;
+  flex-direction: column;
+  padding: 0 3rem;
+  background: #373b69;
+  border-radius: 10px;
+  margin-left: 2rem;
+}
+
+.movie-text a {
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
 }
