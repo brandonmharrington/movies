@@ -27,10 +27,15 @@ const Movie = () => {
         <div className="movie-text">
           <h1>{movieData.title}</h1>
           <p>{movieData.release_date}</p>
-          <p>{movieData.runtime}</p>
-          <p>{movieData.vote_average}</p>
+          <p>Runtime: {movieData.runtime} minutes</p>
+          <p>Average Rating: {movieData.vote_average}/10</p>
+          <p>
+            <b>Description</b>
+          </p>
           <p>{movieData.overview}</p>
-          <a href={movieData.homepage}>Go to Movie</a>
+          <a href={movieData.homepage} target="_blank" rel="noreferrer">
+            More details...
+          </a>
         </div>
       </div>
     </>
