@@ -113,7 +113,7 @@ header {
 .movie-details {
   display: flex;
   flex-direction: row;
-  margin: 5rem;
+  margin: 4rem 7rem;
   color: #fff;
 }
 
@@ -131,7 +131,27 @@ header {
 }
 
 .movie-text a {
-  text-decoration: none;
   color: #fff;
   cursor: pointer;
+}
+
+.movie-text a:focus {
+  outline: none;
+}
+
+.back {
+  margin: 5rem auto 0 8rem;
+}
+
+.back button {
+  color: #fff;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 4rem;
+  cursor: pointer;
+}
+
+.back button i {
+  padding-right: 2rem;
 }

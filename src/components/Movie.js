@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Back from './Back';
 import { IMG_URL, ALT_IMG, MOVIE_URL, API_KEY } from '../config';
 
 const Movie = () => {
@@ -15,6 +16,7 @@ const Movie = () => {
 
   return (
     <>
+      <Back />
       <div className="movie-details">
         <img
           src={
@@ -27,10 +29,15 @@ const Movie = () => {
         <div className="movie-text">
           <h1>{movieData.title}</h1>
           <p>{movieData.release_date}</p>
-          <p>{movieData.runtime}</p>
-          <p>{movieData.vote_average}</p>
+          <p>Runtime: {movieData.runtime} minutes</p>
+          <p>Average Rating: {movieData.vote_average}/10</p>
+          <p>
+            <b>Description</b>
+          </p>
           <p>{movieData.overview}</p>
-          <a href={movieData.homepage}>Go to Movie</a>
+          <a href={movieData.homepage} target="_blank" rel="noreferrer">
+            More details...
+          </a>
         </div>
       </div>
     </>
