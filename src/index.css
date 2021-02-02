@@ -149,6 +149,7 @@ header {
   border: none;
   outline: none;
   font-size: 4rem;
+  cursor: pointer;
 }
 
 .back button i {

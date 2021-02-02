@@ -1,12 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Back() {
   return (
     <div className="back">
-      <button>
-        <i className="fas fa-arrow-circle-left"></i>
-        Back
-      </button>
+      <Link to={'/'} className="link">
+        <button>
+          <i className="fas fa-arrow-circle-left"></i>
+          Back
+        </button>
+      </Link>
     </div>
   );
 }
