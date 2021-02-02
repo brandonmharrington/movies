@@ -155,3 +155,20 @@ header {
 .back button i {
   padding-right: 2rem;
 }
+
+footer {
+  background-color: #373b69;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.7rem;
+  margin-top: 3rem;
+  width: 100%;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+footer .logo {
+  width: 30px;
+  margin-left: 0.7rem;
+}
