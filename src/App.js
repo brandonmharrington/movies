@@ -1,45 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import Dashboard from './components/Dashboard';
 import Movie from './components/Movie';
-import SearchBar from './components/SearchBar';
-import { API_KEY, API_URL, SEARCH_URL } from './config';
+import tmdb_logo from './tmdb_logo.svg';
 
 const App = () => {
-  const [movies, setMovies] = useState([]);
-  const [searchInput, setSearchInput] = useState('');
-
-  useEffect(() => {
-    getMovies(`${API_URL}&api_key=${API_KEY}`);
-  }, []);
-
-  const getMovies = API => {
-    fetch(API)
-      .then(res => res.json())
-      .then(data => setMovies(data.results));
-  };
-
-  const handleChange = e => {
-    setSearchInput(e.target.value);
-  };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    getMovies(`${SEARCH_URL}?api_key=${API_KEY}&query=${searchInput}`);
-    setSearchInput('');
-  };
-
   return (
-    <>
-      <SearchBar
-        searchchange={handleChange}
-        searchsubmit={handleSubmit}
-        searchinput={searchInput}
-      />
+    <Router>
       <div className="movie-container">
-        {movies.length > 0 &&
-          movies.map(movie => <Movie key={movie.id} {...movie} />)}
+        <Switch>
+          <Route exact path="/" component={Dashboard} />
+          <Route exact path="/movie/:movieId" component={Movie} />
+        </Switch>
       </div>
-    </>
+      <footer>
+        This product uses the TMDb API but is not endorsed or certified by TMDb.
+        <img src={tmdb_logo} className="logo" alt="tmdb logo"></img>
+      </footer>
+    </Router>
   );
 };
 

@@ -1,4 +1,6 @@
-* {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -8,11 +10,15 @@ body {
   background-color: #22254b;
 }
 
+/*********************************
+              Header
+**********************************/
 header {
   background-color: #373b69;
   display: flex;
   justify-content: flex-end;
   padding: 1rem;
+  width: 100%;
 }
 
 .search {
@@ -29,6 +35,9 @@ header {
   outline: none;
 }
 
+/*********************************
+              Movie
+**********************************/
 .movie {
   background-color: #373b69;
   border-radius: 3px;
@@ -102,4 +111,159 @@ header {
 
 .tag.red {
   color: red;
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
+}
+
+/*********************************
+          Movie details
+**********************************/
+.movie-details {
+  display: flex;
+  flex-direction: row;
+  margin: 3rem 7rem 10.2rem 7rem;
+  color: #fff;
+}
+
+.movie-details img {
+  width: 300px;
+  object-fit: contain;
+}
+
+.movie-text {
+  display: flex;
+  flex-direction: column;
+  padding: 0 3rem;
+  background: #373b69;
+  border-radius: 10px;
+  margin-left: 2rem;
+  padding-bottom: 20px;
+  min-width: 400px;
+}
+
+.movie-text a {
+  color: #fff;
+  cursor: pointer;
+}
+
+.movie-text a:focus {
+  outline: none;
+}
+
+.movie-text-release {
+  font-weight: bold;
+}
+
+.movie-text p,
+.movie-text h1 {
+  margin-bottom: 0;
+}
+
+.movie-text-description {
+  margin-bottom: 20px;
+}
+
+/*********************************
+          Similar Movies
+**********************************/
+.similar-movie-title {
+  color: #fff;
+  margin: 0;
+  padding-bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.similar-movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 80%;
+}
+
+.similar-movie {
+  width: 250px;
+  padding: 20px 0;
+}
+
+.similar-movie img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  border-radius: 3px;
+}
+
+.similar-movie-info {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin-left: 10px;
+}
+
+.similar-movie-info h3 {
+  margin: 0;
+  font-size: 1rem;
+  max-width: 200px;
+}
+
+.similar-movie-info h6 {
+  font-size: 0.75rem;
+  margin: 0;
+  padding-top: 8px;
+}
+
+/*********************************
+            Back button
+**********************************/
+.back {
+  margin: 2rem auto 0 7rem;
+}
+
+.back button {
+  color: #fff;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.back button i {
+  padding-right: 2rem;
+}
+
+/*********************************
+              Footer
+**********************************/
+footer {
+  background-color: #373b69;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.7rem;
+  margin-top: 3rem;
+  width: 100%;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+footer .logo {
+  width: 30px;
+  margin-left: 0.7rem;
+}
+
+/*********************************
+          Media queries
+**********************************/
+@media only screen and (max-width: 800px) {
+  .movie-details {
+    min-width: 90%;
+  }
+
+  .movie-details img {
+    display: none;
+  }
 }
